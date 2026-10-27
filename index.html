@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReUse Market - Buy and Sell Used Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>ReUse Market</h1>
+        <p>Buy Smart. Sell Easy.</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#sell">Sell Product</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Find Great Deals on Used Products</h2>
+        <p>Buy and sell second-hand products at affordable prices.</p>
+
+        <input type="text" id="searchInput"
+               placeholder="Search for products...">
+
+        <button onclick="searchProducts()">Search</button>
+    </section>
+
+    <section class="products-section" id="products">
+        <h2>Available Products</h2>
+
+        <label for="categoryFilter">Choose Category:</label>
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="All">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Books">Books</option>
+            <option value="Vehicles">Vehicles</option>
+            <option value="Clothing">Clothing</option>
+        </select>
+
+        <div id="productList" class="product-container"></div>
+    </section>
+
+    <section class="sell-section" id="sell">
+        <h2>Sell Your Product</h2>
+
+        <form id="sellForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" required>
+
+            <label for="productPrice">Price (₹):</label>
+            <input type="number" id="productPrice" min="1" required>
+
+            <label for="productCategory">Category:</label>
+            <select id="productCategory" required>
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Books">Books</option>
+                <option value="Vehicles">Vehicles</option>
+                <option value="Clothing">Clothing</option>
+            </select>
+
+            <label for="productDescription">Description:</label>
+            <textarea id="productDescription" required></textarea>
+
+            <label for="sellerName">Seller Name:</label>
+            <input type="text" id="sellerName" required>
+
+            <label for="productImage">Image URL (optional):</label>
+            <input type="url" id="productImage"
+                   placeholder="https://example.com/image.jpg">
+
+            <button type="submit">Post Product</button>
+        </form>
+
+        <p id="sellMessage"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ReUse Market | Buy and Sell Responsibly</p>
+    </footer>
+
+    <!-- Checkout popup -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <button type="button" class="close-button"
+                    onclick="closeCheckout()">X</button>
+
+            <h2>Checkout</h2>
+            <p id="checkoutProduct"></p>
+            <p id="checkoutPrice"></p>
+
+            <form id="checkoutForm">
+                <label for="buyerName">Your Name:</label>
+                <input type="text" id="buyerName" required>
+
+                <label for="buyerPhone">Phone Number:</label>
+                <input type="tel" id="buyerPhone"
+                       pattern="[0-9]{10}"
+                       placeholder="10-digit mobile number" required>
+
+                <label for="buyerAddress">Delivery Address:</label>
+                <textarea id="buyerAddress" required></textarea>
+
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" required>
+                    <option value="COD">Cash on Delivery (COD)</option>
+                    <option value="UPI">UPI (demo only)</option>
+                </select>
+
+                <button type="submit">Place Order</button>
+            </form>
+
+            <p id="orderMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
